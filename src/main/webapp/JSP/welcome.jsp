@@ -8,7 +8,7 @@
 <title>Spring Hello</title>
 </head>
 <h1>This is root page</h1>
-<form:form action="/SpringHello/submit" method="POST" commandName="person">
+<form:form action="/submit" method="POST" commandName="person">
 	<table>
 		<tr>
 			<td><form:label path="name">Name</form:label></td>

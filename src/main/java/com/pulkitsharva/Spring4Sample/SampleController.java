@@ -15,13 +15,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class SampleController {
 
   @RequestMapping(method=RequestMethod.GET)
+  public String get(ModelMap model){
+    model.addAttribute("person", new Person());
+    return "welcome";
+    
+  }
+  @RequestMapping(value="index",method=RequestMethod.GET)
   public String getIndex(ModelMap model){
     model.addAttribute("person", new Person());
     return "welcome";
     
   }
   @RequestMapping(value="json",method=RequestMethod.GET)
-  public @ResponseBody Person get(){
+  public @ResponseBody Person getJson(){
     Person response=new Person();
     response.setName("Hello Pulkit");
     return response;
