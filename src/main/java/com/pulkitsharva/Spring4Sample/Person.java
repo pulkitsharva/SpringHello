@@ -3,7 +3,7 @@ package com.pulkitsharva.Spring4Sample;
 
 import java.io.Serializable;
 
-public class GetResponse implements Serializable {
+public class Person implements Serializable {
 
   private String name;
 
