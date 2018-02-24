@@ -1,8 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.pulkitsharva</groupId>
-  <artifactId>SpringHello</artifactId>
+  <groupId>com.shhh</groupId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>Spring4Sample Maven Webapp</name>
@@ -43,6 +42,13 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.databind-version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.restfb/restfb -->
+<dependency>
+    <groupId>com.restfb</groupId>
+    <artifactId>restfb</artifactId>
+    <version>2.1.1</version>
+</dependency>
+        
 	</dependencies>
 	<build>
 		<pluginManagement>
@@ -60,4 +66,5 @@
 		</pluginManagement>
 		<finalName>ROOT</finalName>
 	</build>
+	<artifactId>SayIt</artifactId>
 </project>

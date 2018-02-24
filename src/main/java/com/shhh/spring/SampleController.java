@@ -1,4 +1,4 @@
-package com.pulkitsharva.Spring4Sample;
+package com.shhh.spring;
 
 
 import org.springframework.stereotype.Controller;
