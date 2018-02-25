@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.shhh</groupId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Spring4Sample Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <properties>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.shhh</groupId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Spring4Sample Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
 		<springframework.version>4.0.6.RELEASE</springframework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		 <jackson.databind-version>2.2.3</jackson.databind-version>
+		<jackson.databind-version>2.2.3</jackson.databind-version>
 	</properties>
 
 	<dependencies>
@@ -37,18 +37,17 @@
 			<version>1.2</version>
 		</dependency>
 		<!-- Jackson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.databind-version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.restfb/restfb -->
-<dependency>
-    <groupId>com.restfb</groupId>
-    <artifactId>restfb</artifactId>
-    <version>2.1.1</version>
-</dependency>
-        
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.databind-version}</version>
+		</dependency>
+		<!-- Form Validation using Annotations -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<pluginManagement>

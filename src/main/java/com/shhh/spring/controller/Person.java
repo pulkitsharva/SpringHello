@@ -1,4 +1,4 @@
-package com.shhh.spring;
+package com.shhh.spring.controller;
 
 
 import java.io.Serializable;
