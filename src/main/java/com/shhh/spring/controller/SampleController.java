@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.shhh.spring.dto.UserRegistrationDTO;
+import com.shhh.spring.dto.UserRegistrationDto;
 
 @Controller
 @RequestMapping("/")
@@ -19,7 +19,7 @@ public class SampleController {
   @RequestMapping(method=RequestMethod.GET)
   public String get(ModelMap model){
     model.addAttribute("person", new Person());
-    model.addAttribute("user",new UserRegistrationDTO());
+    model.addAttribute("user",new UserRegistrationDto());
     return "index";
     
   }

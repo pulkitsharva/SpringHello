@@ -6,9 +6,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
-public class UserRegistrationDTO implements Serializable {
+public class UserRegistrationDto implements Serializable {
 
   private static final long serialVersionUID = -8302199453872547517L;
+  
   @Size(min=3,max=20)
   private String username;
   

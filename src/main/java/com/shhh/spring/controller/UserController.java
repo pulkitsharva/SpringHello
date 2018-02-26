@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.shhh.spring.dto.UserRegistrationDTO;
+import com.shhh.spring.dto.UserLoginDto;
+import com.shhh.spring.dto.UserRegistrationDto;
 import com.shhh.spring.entity.Users;
 import com.shhh.spring.repository.UserRespository;
+import com.shhh.spring.service.UserService;
 import com.shhh.spring.validator.UserRegistrationValidator;
 
 @Controller
@@ -30,20 +32,28 @@ public class UserController {
       binder.setValidator(userRegistrationValidator);
   }
   @Autowired
-  private UserRespository userRespository;
+  private UserService userService;
   
   @RequestMapping(value="/registration",method=RequestMethod.POST)
-  public String getIndex(@ModelAttribute("user")@Valid UserRegistrationDTO user,BindingResult bindingResult, ModelMap model){
+  public String registerUser(@ModelAttribute("user")@Valid UserRegistrationDto user,BindingResult bindingResult, ModelMap model){
     if(bindingResult.hasErrors()){
       return "index";
     }
-    Users dbUser=new Users();
-    dbUser.setUsername("sample");
-    dbUser.setEmail("sample@gmail.com");
-    dbUser.setPassword("test");
-    userRespository.save(dbUser);
+    userService.createNewUser(user);
     model.addAttribute("person", new Person());
     return "welcome";
     
   }
+  
+  @RequestMapping(value="/login",method=RequestMethod.POST)
+  public String login(@ModelAttribute("user")@Valid UserLoginDto user,BindingResult bindingResult, ModelMap model){
+    if(bindingResult.hasErrors()){
+      return "index";
+    }
+    userService.createNewUser(user);
+    model.addAttribute("person", new Person());
+    return "welcome";
+    
+  }
+  
 }
