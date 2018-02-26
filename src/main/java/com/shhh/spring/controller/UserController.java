@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shhh.spring.dto.UserRegistrationDTO;
+import com.shhh.spring.entity.Users;
+import com.shhh.spring.repository.UserRespository;
 import com.shhh.spring.validator.UserRegistrationValidator;
 
 @Controller
@@ -27,12 +29,19 @@ public class UserController {
   {
       binder.setValidator(userRegistrationValidator);
   }
+  @Autowired
+  private UserRespository userRespository;
   
   @RequestMapping(value="/registration",method=RequestMethod.POST)
   public String getIndex(@ModelAttribute("user")@Valid UserRegistrationDTO user,BindingResult bindingResult, ModelMap model){
     if(bindingResult.hasErrors()){
       return "index";
     }
+    Users dbUser=new Users();
+    dbUser.setUsername("sample");
+    dbUser.setEmail("sample@gmail.com");
+    dbUser.setPassword("test");
+    userRespository.save(dbUser);
     model.addAttribute("person", new Person());
     return "welcome";
     
