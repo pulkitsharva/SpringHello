@@ -1,16 +1,15 @@
 package com.shhh.spring.utils;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
+import org.springframework.util.DigestUtils;
 
 @Component
 public class PasswordEncoder{
   
-  private BCryptPasswordEncoder passwordHash= new BCryptPasswordEncoder();
   
   public String encodePassword(String password){
-    //return passwordHash.encode(password);
-    return password;
+    String encodedPassword = DigestUtils.md5DigestAsHex(password.getBytes());
+    return encodedPassword;
   }
   
 }
