@@ -42,10 +42,11 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#about">About</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#services">Services</a></li>
+				<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="${contextPath}/user/login">Login</a></li>
+				<li class="nav-item">
+					 <a class="nav-link js-scroll-trigger" href="${contextPath}/user/registration"><button class="btn btn-default" style="background-color: #337ab7;color: #fff;">Register</button></a>
+				</li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
 			</ul>
@@ -65,7 +66,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
-			---------------------------
 			<div class="container">
   <h2>Registration</h2>
   <form:form action="${contextPath}/user/registration" method="POST" modelAttribute="user" class="form-horizontal">

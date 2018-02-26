@@ -9,7 +9,8 @@ public class PasswordEncoder{
   private BCryptPasswordEncoder passwordHash= new BCryptPasswordEncoder();
   
   public String encodePassword(String password){
-    return passwordHash.encode(password);
+    //return passwordHash.encode(password);
+    return password;
   }
   
 }

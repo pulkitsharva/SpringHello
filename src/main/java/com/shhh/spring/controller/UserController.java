@@ -27,10 +27,11 @@ public class UserController {
   private UserRegistrationValidator userRegistrationValidator;
   
   @InitBinder("user")
-  public void initBinder2(WebDataBinder binder)
+  public void initBinder(WebDataBinder binder)
   {
       binder.setValidator(userRegistrationValidator);
   }
+  
   @Autowired
   private UserService userService;
   
@@ -40,20 +41,30 @@ public class UserController {
       return "index";
     }
     userService.createNewUser(user);
-    model.addAttribute("person", new Person());
-    return "welcome";
+    return "home";
+    
+  }
+  @RequestMapping(value="/registration",method=RequestMethod.GET)
+  public String getRegisterUserPage(ModelMap model){
+    model.addAttribute("user", new UserRegistrationDto());
+    return "register";
     
   }
   
   @RequestMapping(value="/login",method=RequestMethod.POST)
-  public String login(@ModelAttribute("user")@Valid UserLoginDto user,BindingResult bindingResult, ModelMap model){
+  public String login(@ModelAttribute("userLogin")@Valid UserLoginDto user,BindingResult bindingResult, ModelMap model){
     if(bindingResult.hasErrors()){
       return "index";
     }
-    userService.createNewUser(user);
-    model.addAttribute("person", new Person());
-    return "welcome";
+    userService.login(user);
+    return "home";
     
+  }
+  
+  @RequestMapping(value="/login",method=RequestMethod.GET)
+  public String login(ModelMap model){
+    model.addAttribute("userLogin", new UserLoginDto());
+    return "login";
   }
   
 }
