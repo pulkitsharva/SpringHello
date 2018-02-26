@@ -29,7 +29,7 @@ public class UserController {
   }
   
   @RequestMapping(value="/registration",method=RequestMethod.POST)
-  public String getIndex(@ModelAttribute("user")@Valid UserRegistrationDTO request,BindingResult bindingResult, ModelMap model){
+  public String getIndex(@ModelAttribute("user")@Valid UserRegistrationDTO user,BindingResult bindingResult, ModelMap model){
     if(bindingResult.hasErrors()){
       return "index";
     }

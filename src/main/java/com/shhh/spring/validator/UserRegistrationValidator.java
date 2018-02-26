@@ -22,7 +22,7 @@ public class UserRegistrationValidator implements Validator {
     
     UserRegistrationDTO user=(UserRegistrationDTO)obj;
     if(user.getConfirmPassword()!=null && !user.getConfirmPassword().equals(user.getPassword())){
-        error.reject("confirmPassword","password doesn't match");
+        error.rejectValue("confirmPassword","confirmPassword","password doesn't match");
     }
     
   }

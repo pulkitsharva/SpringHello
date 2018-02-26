@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -67,7 +68,7 @@
 			---------------------------
 			<div class="container">
   <h2>Registration</h2>
-  <form:form action="user/registration" method="POST" modelAttribute="user" class="form-horizontal">
+  <form:form action="${contextPath}/user/registration" method="POST" modelAttribute="user" class="form-horizontal">
     <div class="form-group row">
       <label class="control-label col-sm-2" for="email">Username</label>
       <div class="col-sm-10">
@@ -85,14 +86,14 @@
     <div class="form-group row">
       <label class="control-label col-sm-2" for="email">Password</label>
       <div class="col-sm-10">
-      	<form:input path="password" type="password" placeholder="Enter email" class="form-control"/>
+      	<form:input path="password" type="password" placeholder="Password" class="form-control"/>
 	  	<form:errors path="password"/>
       </div>
     </div>
     <div class="form-group row">
       <label class="control-label col-sm-2" for="pwd">Confirm Password</label>
       <div class="col-sm-10">          
-        <form:input path="confirmPassword" type="password" placeholder="Enter email" class="form-control"/>
+        <form:input path="confirmPassword" type="password" placeholder="Password" class="form-control"/>
 	  	<form:errors path="confirmPassword"/>
       </div>
     </div>
@@ -104,40 +105,6 @@
     </div>
   </form:form>
 </div>
-			---------------------------
-				<form:form action="user/registration" method="POST" modelAttribute="user" class="form-horizontal">
-					<div class="form-group">
-						<label class="control-label col-sm-2" for="email">Username:</label>
-						<div class="col-sm-10">
-							<form:input path="username" placeholder="Enter username" />
-							<form:errors path="username" color="red" />
-						</div>
-					</div>
-          Email <form:input path="email" />
-					<form:errors path="email" />
-					</br>
-          Password <form:input path="password" />
-					<form:errors path="password" />
-					</br>
-          Confirm Password <form:input path="confirmPassword" />
-					<form:errors path="confirmPassword" />
-					</br>
-					<input type="submit" value="Register" />
-				</form:form>
-				<h2>About this page</h2>
-				<p class="lead">This is a great place to talk about your
-					webpage. This template is purposefully unstyled so you can use it
-					as a boilerplate or starting point for you own landing page
-					designs! This template features:</p>
-				<ul>
-					<li>Clickable nav links that smooth scroll to page sections</li>
-					<li>Responsive behavior when clicking nav links perfect for a
-						one page website</li>
-					<li>Bootstrap's scrollspy feature which highlights which
-						section of the page you're on in the navbar</li>
-					<li>Minimal custom CSS so you are free to explore your own
-						unique design options</li>
-				</ul>
 			</div>
 		</div>
 	</div>
