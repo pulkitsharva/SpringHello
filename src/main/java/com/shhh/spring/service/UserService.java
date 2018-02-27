@@ -32,7 +32,20 @@ public class UserService {
   public boolean login(UserLoginDto userLoginDto){
     String encodedPassword=passwordEncoder.encodePassword(userLoginDto.getPassword());
     Users user=userRespository.getUsersByUsernameAndPassword(userLoginDto.getUsername(), encodedPassword);
-    System.out.println(user);
+    if(user==null){
+      return false;
+    }
+    return true;
+  }
+  
+  public boolean updateCurrentLocation(String username,Float currentLat,Float currentLong){
+    Users user=userRespository.getUsersByUsername(username);
+    if(user==null){
+      return false;
+    }
+    user.setCurrentLat(currentLat);
+    user.setCurrentLong(currentLong);
+    userRespository.save(user);
     return true;
   }
   

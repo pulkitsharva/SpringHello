@@ -1,5 +1,7 @@
 package com.shhh.spring.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shhh.spring.dto.UserLoginDto;
 import com.shhh.spring.dto.UserRegistrationDto;
-import com.shhh.spring.entity.Users;
-import com.shhh.spring.repository.UserRespository;
 import com.shhh.spring.service.UserService;
 import com.shhh.spring.validator.UserRegistrationValidator;
 
@@ -52,13 +52,19 @@ public class UserController {
   }
   
   @RequestMapping(value="/login",method=RequestMethod.POST)
-  public String login(@ModelAttribute("userLogin")@Valid UserLoginDto user,BindingResult bindingResult, ModelMap model){
+  public String login(@ModelAttribute("userLogin")@Valid UserLoginDto user,BindingResult bindingResult, ModelMap model,HttpServletRequest request){
     if(bindingResult.hasErrors()){
-      return "index";
+      return "login";
     }
-    userService.login(user);
-    return "home";
-    
+    boolean result=userService.login(user);
+    if(result){
+      HttpSession session=request.getSession();
+      session.setAttribute("username", user.getUsername());
+      return "redirect:/home";
+    }
+    else{
+      return "login";
+    }
   }
   
   @RequestMapping(value="/login",method=RequestMethod.GET)

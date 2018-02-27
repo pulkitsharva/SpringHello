@@ -6,6 +6,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
+<script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
+<script>
+
+$(document).ready(function() {
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(success){
+        	var location=success.coords;
+        	$.ajax({
+                type: "get",
+                url: "home/getLocation?latitude="+location.latitude+"&longitude="+location.longitude,
+                headers: {
+                    'Content-Type':'application/json'
+                },		
+                success: function(msg){
+                	console.log("-------",msg)
+                }
+            });
+        },function(error){
+        	alert("Sorry location is required!!!");
+        });
+    }
+	else{
+		alert("location is not supported");
+	}
+	
+	
+});
+</script>
 
 <head>
 
@@ -75,13 +103,11 @@
 	<!-- /.container --> </footer>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="<c:url value="/resources/vendor/jquery/jquery.min.js" />"></script>
-	<script
-		src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+	
+	<script src="<c:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
 
 	<!-- Plugin JavaScript -->
-	<script
-		src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
+	<script src="<c:url value="/resources/vendor/jquery-easing/jquery.easing.min.js" />"></script>
 
 	<!-- Custom JavaScript for this theme -->
 	<script src="<c:url value="/resources/js/scrolling-nav.js" />"></script>

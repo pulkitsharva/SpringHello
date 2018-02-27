@@ -5,7 +5,9 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.validation.annotation.Validated;
 
+@Validated
 public class UserRegistrationDto implements Serializable {
 
   private static final long serialVersionUID = -8302199453872547517L;
@@ -16,8 +18,10 @@ public class UserRegistrationDto implements Serializable {
   @NotNull
   private String email;
   
+  @NotNull
   private String password;
   
+  @NotNull
   private String confirmPassword;
 
   public static long getSerialversionuid() {

@@ -34,6 +34,14 @@ public class Users implements Serializable {
     private String password;
 
     private String username;
+    
+    @Column(name="current_lat")
+    private Float currentLat;
+    
+    @Column(name="current_long")
+    private Float currentLong;
+    
+    
 
     public Users() {
     }
@@ -85,5 +93,23 @@ public class Users implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
+
+    public Float getCurrentLat() {
+      return currentLat;
+    }
+
+    public void setCurrentLat(Float currentLat) {
+      this.currentLat = currentLat;
+    }
+
+    public Float getCurrentLong() {
+      return currentLong;
+    }
+
+    public void setCurrentLong(Float currentLong) {
+      this.currentLong = currentLong;
+    }
+    
+    
 
 }
