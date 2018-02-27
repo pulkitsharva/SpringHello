@@ -1,115 +1,159 @@
 package com.shhh.spring.entity;
 
 import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
+/**
+ * The persistent class for the users database table.
+ * 
+ */
 @Entity
 @Table(name="users")
-@NamedQuery(name="User.findAll", query="SELECT u FROM Users u")
 public class Users implements Serializable {
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue
-    private int id;
+	@Id
+	private int id;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="created_at")
-    private Date createdAt;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="created_at")
+	private Date createdAt;
 
-    private String email;
+	@Column(name="current_lat")
+	private float currentLat;
 
-    @Column(name="is_deleted")
-    private byte isDeleted;
+	@Column(name="current_long")
+	private float currentLong;
 
-    private String password;
+	private String email;
 
-    private String username;
-    
-    @Column(name="current_lat")
-    private Float currentLat;
-    
-    @Column(name="current_long")
-    private Float currentLong;
-    
-    
+	@Column(name="is_deleted")
+	private int isDeleted;
 
-    public Users() {
-    }
+	private String password;
 
-    public int getId() {
-        return this.id;
-    }
+	private String username;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	//bi-directional many-to-one association to Comment
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
 
-    public Date getCreatedAt() {
-        return this.createdAt;
-    }
+	//bi-directional many-to-one association to Post
+	@OneToMany(mappedBy="user")
+	private List<Post> posts;
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
+	public Users() {
+	}
 
-    public String getEmail() {
-        return this.email;
-    }
+	public int getId() {
+		return this.id;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public byte getIsDeleted() {
-        return this.isDeleted;
-    }
+	public Date getCreatedAt() {
+		return this.createdAt;
+	}
 
-    public void setIsDeleted(byte isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
 
-    public String getPassword() {
-        return this.password;
-    }
+	public float getCurrentLat() {
+		return this.currentLat;
+	}
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public void setCurrentLat(float currentLat) {
+		this.currentLat = currentLat;
+	}
 
-    public String getUsername() {
-        return this.username;
-    }
+	public float getCurrentLong() {
+		return this.currentLong;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public void setCurrentLong(float currentLong) {
+		this.currentLong = currentLong;
+	}
 
-    public Float getCurrentLat() {
-      return currentLat;
-    }
+	public String getEmail() {
+		return this.email;
+	}
 
-    public void setCurrentLat(Float currentLat) {
-      this.currentLat = currentLat;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Float getCurrentLong() {
-      return currentLong;
-    }
+	public int getIsDeleted() {
+		return this.isDeleted;
+	}
 
-    public void setCurrentLong(Float currentLong) {
-      this.currentLong = currentLong;
-    }
-    
-    
+	public void setIsDeleted(int isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	public String getPassword() {
+		return this.password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public List<Comment> getComments() {
+		return this.comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Comment addComment(Comment comment) {
+		getComments().add(comment);
+		comment.setUser(this);
+
+		return comment;
+	}
+
+	public Comment removeComment(Comment comment) {
+		getComments().remove(comment);
+		comment.setUser(null);
+
+		return comment;
+	}
+
+	public List<Post> getPosts() {
+		return this.posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public Post addPost(Post post) {
+		getPosts().add(post);
+		post.setUser(this);
+
+		return post;
+	}
+
+	public Post removePost(Post post) {
+		getPosts().remove(post);
+		post.setUser(null);
+
+		return post;
+	}
 
 }

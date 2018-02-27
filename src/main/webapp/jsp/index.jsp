@@ -62,53 +62,6 @@
 	</div>
 	</header>
 
-	<section id="about">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 mx-auto">
-			<div class="container">
-  <h2>Registration</h2>
-  <form:form action="${contextPath}/user/registration" method="POST" modelAttribute="user" class="form-horizontal">
-    <div class="form-group row">
-      <label class="control-label col-sm-2" for="email">Username</label>
-      <div class="col-sm-10">
-      	<form:input path="username" placeholder="Enter username" class="form-control"/>
-	  	<form:errors path="username"/>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="control-label col-sm-2" for="email">Email</label>
-      <div class="col-sm-10">
-      	<form:input type="email" path="email" placeholder="Enter email" class="form-control"/>
-	  	<form:errors path="email"/>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="control-label col-sm-2" for="email">Password</label>
-      <div class="col-sm-10">
-      	<form:input path="password" type="password" placeholder="Password" class="form-control"/>
-	  	<form:errors path="password"/>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="control-label col-sm-2" for="pwd">Confirm Password</label>
-      <div class="col-sm-10">          
-        <form:input path="confirmPassword" type="password" placeholder="Password" class="form-control"/>
-	  	<form:errors path="confirmPassword"/>
-      </div>
-    </div>
-    
-    <div class="form-group row">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default" style="background-color: #337ab7;color: #fff;">Submit</button>
-      </div>
-    </div>
-  </form:form>
-</div>
-			</div>
-		</div>
-	</div>
-	</section>
 
 	<section id="services" class="bg-light">
 	<div class="container">
@@ -124,19 +77,7 @@
 	</div>
 	</section>
 
-	<section id="contact">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 mx-auto">
-				<h2>Contact us</h2>
-				<p class="lead">Lorem ipsum dolor sit amet, consectetur
-					adipisicing elit. Vero odio fugiat voluptatem dolor, provident
-					officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et
-					repudiandae ipsa exercitationem, in, quo totam.</p>
-			</div>
-		</div>
-	</div>
-	</section>
+	
 
 	<!-- Footer -->
 	<footer class="py-5 bg-dark">
