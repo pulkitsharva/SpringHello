@@ -43,7 +43,7 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="${contextPath}/user/login">Login</a></li>
+					<a class="nav-link js-scroll-trigger" href="${contextPath}/login">Login</a></li>
 				</li>
 				<li class="nav-item">
 					 <a href="#page-top"><button class="btn btn-default" style="background-color: #337ab7;color: #fff;">Register</button></a>
@@ -61,7 +61,7 @@
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
 					<div style="text-align:center"><h2>Registration</h2>
-					<form:form action="${contextPath}/user/registration" method="POST"
+					<form:form action="${contextPath}/registration" method="POST"
 						modelAttribute="user" class="form-horizontal">
 						<div class="form-group row">
 							<label class="control-label col-sm-2" for="email">Username</label>

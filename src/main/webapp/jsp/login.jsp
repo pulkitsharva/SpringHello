@@ -44,7 +44,7 @@
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Login</a></li>
 				<li class="nav-item">
-					 <a class="nav-link js-scroll-trigger" href="${contextPath}/user/registration"><button class="btn btn-default" style="background-color: #337ab7;color: #fff;">Register</button></a>
+					 <a class="nav-link js-scroll-trigger" href="${contextPath}/registration"><button class="btn btn-default" style="background-color: #337ab7;color: #fff;">Register</button></a>
 				</li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
@@ -59,7 +59,7 @@
 		<div class="row">
 			<div class="col-lg-8 mx-auto">
 					<div style="text-align:center"><h2>Login</h2>
-					<form:form action="${contextPath}/user/login" method="POST" modelAttribute="userLogin" class="form-vertical">
+					<form:form action="${contextPath}/login" method="POST" modelAttribute="userLogin" class="form-vertical">
 					<font color="red"><c:out value="${errorMessage}" /></font> 
 						<div class="form-group row">
 							<label class="control-label col-sm-2">Username</label>

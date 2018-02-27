@@ -29,7 +29,7 @@ public class HomeController {
     HttpSession session=request.getSession();
     String username=(String) session.getAttribute("username");
     if(username==null){
-      return "redirect:/user/login";
+      return "redirect:/login";
     }
     return "home";
   }

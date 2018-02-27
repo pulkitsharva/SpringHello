@@ -43,9 +43,9 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="${contextPath}/user/login">Login</a></li>
+					<a class="nav-link js-scroll-trigger" href="${contextPath}/login">Login</a></li>
 				<li class="nav-item">
-					 <a class="nav-link js-scroll-trigger" href="${contextPath}/user/registration"><button class="btn btn-default" style="background-color: #337ab7;color: #fff;">Register</button></a>
+					 <a class="nav-link js-scroll-trigger" href="${contextPath}/registration"><button class="btn btn-default" style="background-color: #337ab7;color: #fff;">Register</button></a>
 				</li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
