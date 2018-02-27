@@ -49,5 +49,13 @@ public class UserService {
     return true;
   }
   
+  public boolean getUser(String username){
+    Users user=userRespository.getUsersByUsername(username);
+    if(user==null){
+      return false;
+    }
+    return true;
+  }
+  
   
 }

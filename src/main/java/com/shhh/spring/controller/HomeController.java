@@ -46,6 +46,7 @@ public class HomeController {
     Float currentLong=new Float(longitude);
     boolean result=userService.updateCurrentLocation(username, currentLat, currentLong);
     if(!result){
+      
       return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
     Response response=new Response();

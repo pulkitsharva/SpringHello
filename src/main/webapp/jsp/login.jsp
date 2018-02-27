@@ -60,6 +60,7 @@
 			<div class="col-lg-8 mx-auto">
 					<div style="text-align:center"><h2>Login</h2>
 					<form:form action="${contextPath}/user/login" method="POST" modelAttribute="userLogin" class="form-vertical">
+					<font color="red"><c:out value="${errorMessage}" /></font> 
 						<div class="form-group row">
 							<label class="control-label col-sm-2">Username</label>
 							<div class="col-sm-5">

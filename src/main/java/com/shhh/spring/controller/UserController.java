@@ -63,6 +63,7 @@ public class UserController {
       return "redirect:/home";
     }
     else{
+      model.addAttribute("errorMessage", "Username or password is incorrect!!");
       return "login";
     }
   }
